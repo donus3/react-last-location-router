@@ -38,14 +38,13 @@ In other words, the location this library provides is not necessarily the same a
 4. Visit `/c`: last location = `/b`
 4. Go back to `/a` (by selecting that state explicitly in "Go back" browser dropdown that is visible upon clicking it with right mouse button): last location = `/c`, previous browser history state = `/`
 
-## How to use?
+## Installation
 
-```bash
-# Please remember that you should have installed react and react-router-dom packages
+```sh
 # npm
-npm install react-router-dom-last-location --save
+npm install react react-router-dom history react-router-dom-last-location --save
 # yarn
-yarn add react-router-dom-last-location
+yarn add react react-router-dom history react-router-dom-last-location
 
 ```
 
@@ -65,18 +64,9 @@ import Logger from './components/Logger';
 const App = () => (
   <Router>
     <LastLocationProvider>
-      <div>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
-        </ul>
-        <hr />
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/contact" component={Contact} />
-        <hr />
-        <Logger />
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </div>
     </LastLocationProvider>
   </Router>
@@ -85,8 +75,6 @@ render(<App />, document.getElementById('root'));
 ```
 
 ### Use hook `useLastLocation` to get `lastLocation`.
-
-`./components/Logger`
 
 ```jsx
 import React from 'react';
