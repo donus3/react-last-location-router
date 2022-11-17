@@ -1,3 +1,9 @@
+![workflow](https://github.com/donus3/react-last-location-router/actions/workflows/ci.yml/badge.svg)
+![license](https://img.shields.io/github/license/donus3/react-last-location-router?logoColor=)
+
+[![NPM](https://nodei.co/npm/react-router-dom-last-location.png?compact=true)](https://npmjs.org/package/react-router-dom-last-location)
+
+
 ## react-router-dom-last-location
 
 Fork version of [react-router-last-location](https://github.com/hinok/react-router-last-location) but for react-router v6
@@ -128,7 +134,3 @@ export default MyPage;
 **`watchOnlyPathname`**, type: `boolean`, default: `false`
 
 Stores the last route only when `pathname` has changed.
-
-## TODO:
-- Add unit test
-- Add github actions
