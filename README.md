@@ -59,50 +59,80 @@ yarn add react react-router-dom history react-router-dom-last-location
 `index.js`
 
 ```jsx
-import React from 'react';
-import { render } from 'react-dom';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { LastLocationProvider } from 'react-router-dom-last-location';
-import Home from './pages/Home';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import Logger from './components/Logger';
-const App = () => (
-  <Router>
-    <LastLocationProvider>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </div>
-    </LastLocationProvider>
-  </Router>
-);
-render(<App />, document.getElementById('root'));
+// layout/Main.jsx
+import { Outlet } from "react-router";
+import { LastLocationProvider } from "react-router-dom-last-location";
+
+export function MainLayout() {
+
+  return (
+    <>
+      <LastLocationProvider>
+        <Outlet />
+      </LastLocationProvider>
+    </>
+  )
+}
+
+// App.jsx
+import { Route, Routes } from "react-router";
+import { BrowserRouter } from "react-router-dom";
+import { LoggerLayout } from "./layout/Logger";
+import { MainLayout } from "./layout/Main";
+import { About } from "./pages/About";
+import { Foo } from "./pages/Foo";
+import { Home } from "./pages/Home";
+
+function App() {
+  return (
+    <BrowserRouter >
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route element={<LoggerLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/foo" element={<Foo />} />
+          </Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
 ```
 
 ### Use hook `useLastLocation` to get `lastLocation`.
 
 ```jsx
-import React from 'react';
-import { useLastLocation } from 'react-router-dom-last-location';
-const Logger = () => {
+// layout/Logger.jsx
+import { Outlet, useLocation } from "react-router";
+import { useLastLocation } from "react-router-dom-last-location";
+
+export function LoggerLayout() {
+  const location = useLocation()
   const lastLocation = useLastLocation();
+
   return (
-    <div>
-      <h2>Logger!</h2>
-      <pre>
-        {JSON.stringify(lastLocation)}
-      </pre>
-    </div>
-  );
-};
-export default LoggerHooks;
+    <>
+      <Outlet />
+      <div>
+        <h3> Last Location state</h3>
+        <pre>{JSON.stringify(lastLocation)}</pre>
+      </div>
+
+      <div>
+        <h3> Current Location state</h3>
+        <pre>{JSON.stringify(location)}</pre>
+      </div>
+    </>
+  )
+}
 ```
 
 ### Use `RedirectWithoutLastLocation` to not store redirects as last location
 
 ```jsx
-import React from 'react';
 import { RedirectWithoutLastLocation } from 'react-router-dom-last-location';
 const MyPage = () => (
   <RedirectWithoutLastLocation to="/" />
@@ -115,11 +145,10 @@ You can still use a regular `<Navigate to="/" replace />` component from `react-
 If you do, you'll  then you need to manually pass the `state: { preventLastLocation: true }`, like below:
 
 ```jsx
-import React from 'react';
 import { Navigate } from 'react-router-dom';
 const MyPage = () => (
   <Navigate
-    to={{ pathname: '/' }}
+    to="/"
     state={{ preventLastLocation: true }}
     replace
   />
