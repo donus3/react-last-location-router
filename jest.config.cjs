@@ -5,5 +5,6 @@ module.exports = {
   transform: {
     ...tsjPreset.transform
   },
+  testPathIgnorePatterns: ['example'],
   moduleFileExtensions: ['tsx', 'ts', 'js']
 }
