@@ -8,6 +8,8 @@ export function LoggerLayout() {
   return (
     <>
       <Outlet />
+      <hr/>
+      <p>From useLastLocation:</p>
       <div>
         <h3> Last Location state</h3>
         <pre>{JSON.stringify(lastLocation)}</pre>

@@ -7,6 +7,8 @@ export const HocLoggerLayout = withLastLocation( ({lastLocation}) => {
   return (
     <>
       <Outlet />
+      <hr/>
+      <p>From withLastLocation:</p>
       <div>
         <h3> Last Location state</h3>
         <pre>{JSON.stringify(lastLocation)}</pre>

@@ -7490,10 +7490,10 @@ react-refresh@^0.11.0:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.11.0.tgz#77198b944733f0f1f1a90e791de4541f9f074046"
   integrity sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==
 
-react-router-dom-last-location@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/react-router-dom-last-location/-/react-router-dom-last-location-0.1.4.tgz#1ceff605fa55715a5415766d5621f9c1f771472b"
-  integrity sha512-xttYu2gmgKM4ZKm0Yoz58K68HnpG4ZbXvgFyVHmzrTFA/4YtrtpaDSm0yj8BZ0sc/Bb6hcJCEHaYOFAyc3Toog==
+react-router-dom-last-location@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/react-router-dom-last-location/-/react-router-dom-last-location-0.2.1.tgz#8d7b647a8c22b4c9c3a0ec1990c00d5e96743e6c"
+  integrity sha512-LqMrLG8aBdHcQpwx2k3G6I6pMRWZXLI/VlyduYpmYOAcVxdbTFgpn1wJEiDWIiq1paZS7MCtKPGshpf/8TbqRw==
 
 react-router-dom@^6.7.0:
   version "6.7.0"
