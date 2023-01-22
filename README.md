@@ -9,6 +9,7 @@
 Fork version of [react-router-last-location](https://github.com/hinok/react-router-last-location) but for react-router v6
 - Provides access to the last location in `react` + `react-router (v6.x)` applications.
 - Hooks, `useLastLocation`.
+- HoC, `withLastLocation`.
 - Handle redirects.
 - TypeScript
 - Useful for handling internal routing.
@@ -128,6 +129,33 @@ export function LoggerLayout() {
     </>
   )
 }
+```
+
+### Use HoC `withLastLocation` to get `lastLocation`.
+
+```jsx
+// layout/HocLogger.jsx
+import { Outlet, useLocation } from "react-router";
+import { withLastLocation } from "react-router-dom-last-location";
+
+export const HocLoggerLayout = withLastLocation( ({lastLocation}) => {
+  const location = useLocation()
+
+  return (
+    <>
+      <Outlet />
+      <div>
+        <h3> Last Location state</h3>
+        <pre>{JSON.stringify(lastLocation)}</pre>
+      </div>
+
+      <div>
+        <h3> Current Location state</h3>
+        <pre>{JSON.stringify(location)}</pre>
+      </div>
+    </>
+  )
+})
 ```
 
 ### Use `RedirectWithoutLastLocation` to not store redirects as last location
