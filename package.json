@@ -53,9 +53,10 @@
     "react-router-dom": "^6"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "main": "dist/index.js",
   "module": "dist/index.es.js",
-  "types": "./dist/index.d.ts"
+  "types": "dist/index.d.ts"
 }

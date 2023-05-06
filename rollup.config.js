@@ -12,7 +12,7 @@ export default {
       file: packageJson.main,
       format: 'cjs',
       sourcemap: true,
-      name: 'index'
+      name: 'react-router-dom-last-location'
     },
     {
       file: packageJson.module,
