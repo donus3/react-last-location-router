@@ -1,7 +1,7 @@
 {
   "name": "react-router-dom-last-location",
   "description": "Provides access to the last location in react + react-router (v6.x) apps. Useful for handling internal routing. Easily prevent leaving your app by users.",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "license": "MIT",
   "type": "module",
   "keywords": [
