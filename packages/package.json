@@ -1,0 +1,33 @@
+{
+  "name": "react-router-dom-last-location",
+  "description": "Provides access to the last location in react + react-router (v6.x) apps. Useful for handling internal routing. Easily prevent leaving your app by users.",
+  "version": "0.2.2",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "react-router",
+    "location",
+    "history",
+    "last-location"
+  ],
+  "repository": "git@github.com:donus3/react-last-location-router.git",
+  "author": "Donus <donus33@gmail.com>",
+  "peerDependencies": {
+    "history": "^5",
+    "react": "^16.8.0 || ^17 || ^18",
+    "react-router": "^6",
+    "react-router-dom": "^6"
+  },
+  "scripts": {
+    "build": "rollup -c --bundleConfigAsCjs",
+    "prepare": "install-peers",
+    "test": "jest",
+    "lint": "eslint ./src"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts"
+}

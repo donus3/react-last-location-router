@@ -9,7 +9,7 @@ import { Home } from "./pages/Home";
 
 function App() {
   return (
-    <HashRouter >
+    <HashRouter>
       <Routes>
         <Route element={<MainLayout />}>
           <Route element={<LoggerLayout />}>

@@ -24,8 +24,11 @@ jobs:
       - name: Install node dependencies
         run: yarn
       - name: Build
+        working-directory: ./packages
         run: yarn build
       - name: Test
+        working-directory: ./packages
         run: yarn test
       - name: Lint
+        working-directory: ./packages
         run: yarn lint
