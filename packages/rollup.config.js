@@ -2,6 +2,7 @@ import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
 import external from 'rollup-plugin-peer-deps-external'
+import terser from '@rollup/plugin-terser'
 
 const packageJson = require('./package.json')
 
@@ -10,20 +11,18 @@ export default {
   output: [
     {
       file: packageJson.main,
-      format: 'cjs',
-      sourcemap: true,
-      name: 'react-router-dom-last-location'
+      format: 'cjs'
     },
     {
       file: packageJson.module,
-      format: 'esm',
-      sourcemap: true
+      format: 'esm'
     }
   ],
   plugins: [
     external(),
     resolve(),
     commonjs(),
-    typescript({ tsconfig: './tsconfig.json' })
+    typescript({ tsconfig: './tsconfig.json' }),
+    terser()
   ]
 }
